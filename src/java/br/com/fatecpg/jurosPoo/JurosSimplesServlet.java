@@ -38,11 +38,42 @@ public class JurosSimplesServlet extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet JurosSimplesServlet</title>");            
+            
+            /*CSS */
+            
+            
             out.println("</head>");
+            
             out.println("<body>");
+            
+            
+            out.println("<body style=\"background:#4169e1;text-align:center;color:white;font-family:verdana;\">");
+            
+            /*Formulario de Juros Simples*/
             out.println("<h2>Juros Simples</h2>");
-            out.println("<label for=\"nomeL\">Taxa:</label>\n");
-            out.println("<input type=\"number\" name=\"taxa\" class=\"form-control\">\n");
+            
+            out.println("<div class=\"form\">");
+            out.println("<form>\n" +
+                    "<div class=\"col-md-6\">\n" +
+                    "<h3>Insira seus dados</h3>\n" +        
+                    "<div class=\"col-md-4\">\n" +                    
+                    "<div class=\"form-group\">\n" +
+                    "<label for=\"nomeL\">Taxa:</label>\n" +
+                    "<input type=\"number\" name=\"taxa\" class=\"form-control\">\n"+
+                    "</div></div>\n"+
+                    "<div class=\"col-md-4\">\n" +
+                    "<div class=\"form-group\">\n" +
+                    "<label for=\"capital\">Capital:</label>\n" +
+                    "<input type=\"number\" name=\"capital\" class=\"form-control\">\n"+
+                    "</div></div>\n"+
+                    "<div class=\"col-md-4\">\n" +
+                    "<div class=\"form-group\">\n" +
+                    "<label for=\"tempo\">Tempo:</label>\n" +
+                    "<input type=\"number\" name=\"tempo\" class=\"form-control\">\n"+
+                    "</div></div>\n"+
+                    "<input type=\"submit\" class=\"btn botao-form\" value=\"Calcular\">"
+            );    
+            
             out.println("<a href=\"home\" name=\"btnVoltar\" class=\"btn botao-form\">Voltar</a>");
             
             /* Pegando o valor do capital a ser investido */
@@ -53,6 +84,17 @@ public class JurosSimplesServlet extends HttpServlet {
             double tempo = Double.parseDouble(request.getParameter("tempo"));
             /*Calculando o juros*/
             double juros = capital*taxa*tempo;
+            
+            
+            out.println("</div>");
+            out.println("<div class=\"col-md-6\">");
+            out.println("<h2>Resultado da Operação</h2><br><br>");
+            /*Resultado o juros*/ 
+            out.println("<h2 style=\"padding-bottom:8px;\">Juros Simples: "+juros+"</h2>");
+            
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
             
             out.println("</body>");
             out.println("</html>");
